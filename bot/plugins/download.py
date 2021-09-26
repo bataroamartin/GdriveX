@@ -75,8 +75,8 @@ def _telegram_file(client, message):
 @Client.on_message(filters.incoming & filters.private & filters.command(BotCommands.YtDl) & CustomFilters.auth_users)
 def _ytdl(client, message):
   user_id = message.from_user.id
-  if len(message.command) > 1:
-    sent_message = message.reply_text('🕵️**Checking Link...**', quote=True)
+  if len(message.command) > 0:
+    sent_message = message.reply_text('🕵️**use @adarshytbot...**', quote=True)
     link = message.command[1]
     LOGGER.info(f'YTDL:{user_id}: {link}')
     sent_message.edit(Messages.DOWNLOADING.format(link))
