@@ -1,5 +1,6 @@
 from bot import SUPPORT_CHAT_LINK
 from pyrogram import Client, filters
+from bot import config
 from bot.config import Messages as tr
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
