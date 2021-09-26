@@ -3,7 +3,7 @@ from pyrogram import Client, filters
 from bot.config import Messages as tr
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-@Client.on_message(filters.private & filters.incoming & filters.command(['help']), group=2)
+@Client.on_message(filters.private & filters.incoming & filters.command(['YtDl']), group=2)
 def _help(client, message):
     client.send_message(chat_id = message.chat.id,
         text = tr.YTDL_LINK_1[1],
