@@ -3,6 +3,13 @@ from pyrogram import Client, filters
 from bot.config import Messages as tr
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
+@Client.on_message(filters.private & filters.incoming & filters.command(['ytdl']), group=2)
+def _start(client, message):
+    client.send_message(chat_id = message.chat.id,
+        text = tr.START_MSG.format(message.from_user.mention),
+        reply_to_message_id = message.message_id
+    )
+
 
 @Client.on_message(filters.private & filters.incoming & filters.command(['start']), group=2)
 def _start(client, message):
@@ -42,7 +49,7 @@ def map(pos):
         button = [
             [
              InlineKeyboardButton(text = 'Support Chat', url = SUPPORT_CHAT_LINK),
-             InlineKeyboardButton(text = 'Feature Request', url = "https://github.com/viperadnan-git/google-drive-telegram-bot/issues/new")
+             InlineKeyboardButton(text = 'SOURCE CODE', url = "https://github.com/gdriveadarsh/gdrive")
             ],
             [InlineKeyboardButton(text = '<--', callback_data = f"help+{pos-1}")]
 
