@@ -3,17 +3,12 @@ from pyrogram import Client, filters
 from bot.config import Messages as tr
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-@Client.on_message(filters.command(['ytdl']))
-async def help_user(bot, update):
-    # logger.info(update)
-    await client.send_message(
-        chat_id=update.chat.id,
-        text=rr.YTDL_LINK_1,
-        parse_mode="html",
-        disable_web_page_preview=True,
-        reply_to_message_id=update.message_id
+@Client.on_message(filters.private & filters.incoming & filters.command(['start','ytdl']), group=2)
+def _start(client, message):
+    client.send_message(chat_id = message.chat.id,
+        text = tr.YTDL_LINK_1.format(message.from_user.mention),
+        reply_to_message_id = message.message_id
     )
-
 
 
 
