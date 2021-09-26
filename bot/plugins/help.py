@@ -3,12 +3,13 @@ from pyrogram import Client, filters
 from bot.config import Messages as tr
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-@Client.on_message(filters.private & filters.incoming & filters.command(['ytdl']), group=2)
-def _ytd(client, message):
+@Client.on_message(filters.private & filters.incoming & filters.command(['help']), group=2)
+def _help(client, message):
     client.send_message(chat_id = message.chat.id,
-        text = tr.YTDL_LINK_1.format(message.from_user.mention),
+        text = tr.YTDL_LINK_1[1],
         reply_to_message_id = message.message_id
     )
+
 
 
 @Client.on_message(filters.private & filters.incoming & filters.command(['start']), group=2)
