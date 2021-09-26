@@ -8,7 +8,7 @@ async def help_user(bot, update):
     # logger.info(update)
     await client.send_message(
         chat_id=update.chat.id,
-        text=Tr.YTDL_LINK_1,
+        text=rr.YTDL_LINK_1,
         parse_mode="html",
         disable_web_page_preview=True,
         reply_to_message_id=update.message_id
