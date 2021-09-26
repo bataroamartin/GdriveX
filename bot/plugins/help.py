@@ -3,7 +3,7 @@ from pyrogram import Client, filters
 from bot.config import Messages as tr
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-@Client.on_message(filters.command(["ytdl"]))
+@Client.on_message(filters.command(['ytdl']))
 async def help_user(bot, update):
     # logger.info(update)
     await client.send_message(
